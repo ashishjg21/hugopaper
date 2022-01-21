@@ -1,5 +1,5 @@
 baseURL: ""
-title: Ashish J. Galagali
+title: Ashish J. Galagali #website name 
 paginate: 5
 theme: PaperMod
 
@@ -8,7 +8,7 @@ buildDrafts: false
 buildFuture: false
 buildExpired: false
 
-googleAnalytics: UA-123-45
+#googleAnalytics: UA-123-45
 
 minify:
   disableXML: true
@@ -16,7 +16,7 @@ minify:
 
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  title: ExampleSite
+  title: Ashish J. Galagali 
   description: "ExampleSite description"
   keywords: [Blog, Portfolio, PaperMod]
   author: Me
@@ -30,14 +30,14 @@ params:
   ShowShareButtons: true
   ShowPostNavLinks: true
   ShowBreadCrumbs: true
-  ShowCodeCopyButtons: false
+  ShowCodeCopyButtons: true
   disableSpecial1stPost: false
   disableScrollToTop: false
-  comments: false
+  comments: true
   hidemeta: false
   hideSummary: false
-  showtoc: false
-  tocopen: false
+  showtoc: true
+  tocopen: true
 
   assets:
     # disableHLJS: true # to disable highlight.js
@@ -49,16 +49,16 @@ params:
     safari_pinned_tab: "<link / abs url>"
 
   label:
-    text: "Home"
+    text: "Ashish J. G"
     icon: 
     iconHeight: 35
 
   # profile-mode
   profileMode:
     enabled: false # needs to be explicitly set
-    title: ExampleSite
+    title: Ashish J. Galagali  
     subtitle: "This is subtitle"
-    imageUrl: "<img location>"
+    imageUrl: "/albert-einstein-quotes.jpg"
     imageWidth: 120
     imageHeight: 120
     imageTitle: my image
@@ -80,14 +80,15 @@ params:
       url: "https://stackoverflow.com"
     - name: github
       url: "https://github.com/ashishjg21"
+    - name: linkedin
+      url: "https://www.linkedin.com/in/ashish-galagali/"
 
-  analytics:
-    google:
-      SiteVerificationTag: "XYZabc"
-    bing:
-      SiteVerificationTag: "XYZabc"
-    yandex:
-      SiteVerificationTag: "XYZabc"
+    # google:
+    #   SiteVerificationTag: "XYZabc"
+    # bing:
+    # analytics:    SiteVerificationTag: "XYZabc"
+    # yandex:
+    #   SiteVerificationTag: "XYZabc"
 
   cover:
     hidden: true # hide everywhere but not in structured data
@@ -101,6 +102,14 @@ params:
 
   # for search
   # https://fusejs.io/api/options.html
+
+  outputs:
+    home:
+        - HTML
+        - RSS
+        - JSON # is necessary
+
+
   fuseOpts:
     isCaseSensitive: false
     shouldSort: true
@@ -119,16 +128,16 @@ menu:
       name: tags
       url: /tags/
       weight: 20
-    - identifier: example
-      name: example.org
-      url: https://example.org
+    - identifier: search
+      name: search
+      url : /search 
       weight: 30
-# Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
-# pygmentsUseClasses: true
-# markup:
-#     highlight:
-#         # anchorLineNos: true
-#         codeFences: true
-#         guessSyntax: true
-#         lineNos: true
-#         style: monokai
+#Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
+pygmentsUseClasses: true
+markup:
+    highlight:
+        #anchorLineNos: true
+        codeFences: true
+        guessSyntax: true
+        lineNos: true
+        style: monokai
