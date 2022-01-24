@@ -16,7 +16,7 @@ https://hackerone.com/spotify. great idea, but it was possible to pass in the bu
 
 
 barcodes
-QR codes
+QR codes lil history maybe
 
 ## Spotify codes 
 
