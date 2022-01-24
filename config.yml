@@ -7,7 +7,7 @@ enableRobotsTXT: true
 buildDrafts: false
 buildFuture: false
 buildExpired: false
-
+enableEmoji: true
 #googleAnalytics: UA-123-45
 
 minify:
@@ -39,14 +39,14 @@ params:
   showtoc: true
   tocopen: true
 
-  assets:
-    # disableHLJS: true # to disable highlight.js
-    # disableFingerprinting: true
-    favicon: "<link / abs url>"
-    favicon16x16: "<link / abs url>"
-    favicon32x32: "<link / abs url>"
-    apple_touch_icon: "<link / abs url>"
-    safari_pinned_tab: "<link / abs url>"
+  # assets:
+  #   # disableHLJS: true # to disable highlight.js
+  #   # disableFingerprinting: true
+  #   favicon: "<link / abs url>"
+  #   favicon16x16: "<link / abs url>"
+  #   favicon32x32: "<link / abs url>"
+  #   apple_touch_icon: "<link / abs url>"
+  #   safari_pinned_tab: "<link / abs url>"
 
   label:
     text: "Ashish J. G"
@@ -82,7 +82,11 @@ params:
       url: "https://github.com/ashishjg21"
     - name: linkedin
       url: "https://www.linkedin.com/in/ashish-galagali/"
-
+    - name: email
+      url: "ajg8188@gmail.com"
+    - name: instagram
+      url: "https://www.instagram.com/ashishjg"
+    
     # google:
     #   SiteVerificationTag: "XYZabc"
     # bing:
@@ -141,3 +145,8 @@ markup:
         guessSyntax: true
         lineNos: true
         style: monokai
+
+# taxonomies:
+#     category: categories
+#     tag: tags
+#     series: series
