@@ -1,5 +1,5 @@
 ---
-title: "How does Spotofy Codes Work?"
+title: "How does Spotify Codes Work?"
 date: 2021-12-31T11:08:50+05:30
 draft: false
 
