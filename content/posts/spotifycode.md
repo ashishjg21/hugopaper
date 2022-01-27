@@ -316,7 +316,7 @@ Let's reiterate why we went through the process of calculating the CRC and convo
 1. Convolutional codes allow us to correct for errors in a message by sending "redundant" bits with the message
 2. The CRC lets the client check the validity of the decoded Spotify code. If the check bits are not correct, the client can scan the code again. When they are correct, then the client can ping Spotify's servers. As Ludvig says, "I chose to include a CRC to let the client have a way to more easily discard invalid codes without a backend roundtrip."
 
-The process of transforming an image of a Spotify code to a media reference follows approximately the same steps as encoding in reverse. However, there is a good bit of theory around decoding a convolutional code.
+The process of transforming an image of a Spotify code to a media reference follows approximately the same steps as encoding in reverse. However, there is a much more happening while decoding a convolutional code.
 
 
 [Как спрятать мусор в базе Spotify и превратить это в квест (How to hide trash in Spotify database and turn it into a quest)](https://habr.com/en/post/518970/)
