@@ -43,12 +43,12 @@ The media reference is what gets encoded into the barcode and links the barcode 
 
 Simple no, no it isn't. There is a lot more which goes on in the background.
 Problems :
-Big to small barcode URIs to barcode (The weird thing about this is the amount of information in the URI and the Spotify code do not match up.)
-Error correction 
-String encryption
+- Big to small barcode URIs to barcode (The weird thing about this is the amount of information in the URI and the Spotify code do not match up.)
+- Error correction 
+- String encryption
 
-
-Grey scale omg stop imaging I know what you all are thinking greyscale disease from Game of thrones well that is not what is used here.
+Then it goes with CRC Calculation, Convolutional encoding, Decoding.  
+Grey scale, omg stop imaging I know what you all are thinking greyscale disease from Game of thrones well that is not what is used here.
 
 
 The media reference can be expressed as a 37 bit binary number:
