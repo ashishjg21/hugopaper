@@ -7,20 +7,13 @@ draft: false
 
 
 # How does Spotify Codes Work?
-Links
-	https://www.spotifycodes.com/
-	https://boonepeter.github.io/posts/2020-11-10-spotify-codes/	
-
-https://hackerone.com/spotify. great idea, but it was possible to pass in the bug bounty 
 
 ## Spotify codes 
 
 I love music and I spend most of my day listening to songs. Spotify codes caught my eye from past some days, so I went on finding how do they work. 
 I thought I should share this journey, how even the maker of Spotify codes Ludvig Strigeus,(also the maker of utorrent)was involved.
 
-set out to figure out how they worked, which led me on a winding journey through barcode history, patents, packet sniffing, error correction, and Gray tables.
-
-Spotify Codes are like QR-codes that can be generated to easily share Spotify songs, artists, playlists, and users.
+> Spotify Codes are like QR-codes that can be generated to easily share Spotify songs, artists, playlists, and users.
 
 ## Spotify URIs	
 Spotify URIs (Uniform Resource Identifiers). Different pieces of media (artists, albums, songs, playlists, users) all have a URI.
@@ -32,12 +25,12 @@ The 22 characters are the numbers 0-9, characters a-z and A-Z. This means there 
 Spotify Codes 
 When the bars are sorted by height you can see that there are 8 discrete heights that they fall into.
 
-Image 
+![spotify code with heights labeled](https://www.google.com/url?sa=i&url=https%3A%2F%2Fboonepeter.github.io%2Fposts%2F2020-11-10-spotify-codes%2F&psig=AOvVaw2LHgpA5Qw_FBqkYQ-hBohU&ust=1643392474501000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCKD34prA0vUCFQAAAAAdAAAAABAI)
 
 Code 1
-This is the sequence of the “Take On Me” Spotify code:
+This is the sequence of the “Girl Of My Dreams” Spotify code:
 
->>> get_heights("/imgs/spotify/spotify_track_6vQN2a9QSgWcm74KEZYfDL.jpg")
+> get_heights
 [0, 5, 1, 2, 0, 6, 4, 3, 7, 1, 6, 7, 7, 7, 7, 3, 1, 6, 3, 7, 0, 7, 0]
 
 According to StackOverflow discussion,
@@ -140,20 +133,24 @@ print(check_crc(data, poly, check))
 
 ### Convolutional encoding
 
-These 45 bits are then [convolutionally encoded](https://en.wikipedia.org/wiki/Convolutional_code). Convolutional codes add redundancy to data to make it possible to decode the data if errors are introduced during transmission. I recommend you check out [these MIT lecture notes](http://web.mit.edu/6.02/www/f2010/handouts/lectures/L8.pdf) to learn more about convolutional codes.
+These 45 bits are then [convolutionally encoded](https://en.wikipedia.org/wiki/Convolutional_code). Convolutional codes add redundancy to data to make it possible to decode the data if errors are introduced during transmission. 
 
-Spotify's [patent](https://www.freepatentsonline.com/20180181849.pdf) is not very clear on what convolutional encoding is performed:
+
+Resources to learn more
+[these MIT lecture notes](http://web.mit.edu/6.02/www/f2010/handouts/lectures/L8.pdf) 
+
+Spotify's [patent](https://www.freepatentsonline.com/20180181849.pdf) 
+
+[High-Rate Punctured Convolutional Codes for Soft Decision Viterbi Decoding](https://doi.org/10.1109/TCOM.1984.1096047)
+
+[Convolutional Codes and State Machine View/Trellis (MIT Slides)](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-02-introduction-to-eecs-ii-digital-communication-systems-fall-2012/lecture-slides/MIT6_02F12_lec06.pdf)
+
+[The Error Correcting Codes Page](http://www.eccpage.com/)
+
+[Reed-Solomon Codes and the Exploration of the Solar System](https://trs.jpl.nasa.gov/bitstream/handle/2014/34531/94-0881.pdf?sequence=1)
 
 > The code can then be transformed into an error correcting code, such as a forward error correcting code. The forward error correction used can, for example, be a convolutional code.
 
-However, "Doyle" on Stack Overflow [identified](https://stackoverflow.com/a/64950150/10703868) that Spotify uses the following generator polynomials:
-
-```
-g0 = 1011011
-g1 = 1111001
-```
-
-The generator polynomial represents which bits of the input should be XOR'ed together in a sliding window.
 
 #### Tail biting
 
@@ -311,8 +308,6 @@ Three additional bars are added as reference points at the start, end, and 12th 
 [0]5741466024[7]3467556070[0]
 ```
 
-Which gives us the resulting Spotify code:
-![Spotify code for indie running playlist](/imgs/spotify-2/spcode-37i9dQZF1DWZq91oLsHZvy_labeled.png)
 
 ## Decoding
 
@@ -321,3 +316,10 @@ Let's reiterate why we went through the process of calculating the CRC and convo
 2. The CRC lets the client check the validity of the decoded Spotify code. If the check bits are not correct, the client can scan the code again. When they are correct, then the client can ping Spotify's servers. As Ludvig says, "I chose to include a CRC to let the client have a way to more easily discard invalid codes without a backend roundtrip."
 
 The process of transforming an image of a Spotify code to a media reference follows approximately the same steps as encoding in reverse. However, there is a good bit of theory around decoding a convolutional code.
+
+
+[Как спрятать мусор в базе Spotify и превратить это в квест (How to hide trash in Spotify database and turn it into a quest)](https://habr.com/en/post/518970/)
+
+[Cracking Spotify Codes and making a quest out of it](https://dev.to/ale/cracking-spotify-codes-and-making-a-quest-out-of-it-3jdn)
+
+[Spotify's bug bounty](https://hackerone.com/spotify). Great idea, but it was possible to pass in the bug bounty 
