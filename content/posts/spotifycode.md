@@ -18,14 +18,15 @@ I thought I should share this journey, how even the maker of Spotify codes Ludvi
 ## Spotify URIs	
 Spotify URIs (Uniform Resource Identifiers). Different pieces of media (artists, albums, songs, playlists, users) all have a URI.
 
-A URI is a code you can use for embedding and searching within the Spotify app. Spotify URI codes look like this: spotify:user:spotify:playlist:37i9dQZF1DXcBWIGoYBM5M. 
+A URI is a code you can use for embedding and searching within the Spotify app. Spotify URI codes look like this: 
+>spotify:user:spotify:playlist:37i9dQZF1DXcBWIGoYBM5M. 
 
 The 22 characters are the numbers 0-9, characters a-z and A-Z. This means there are 10 + 26 + 26 = 62 possibilities for each character (almost Base64). So the potential number of Spotify URIs is 62^22 which is equal to 2.7e39 which is a veryyy longgg digit so Spotify is not running out of these any time soon.
 
 Spotify Codes 
 When the bars are sorted by height you can see that there are 8 discrete heights that they fall into.
 
-![spotify code with heights labeled](https://www.google.com/url?sa=i&url=https%3A%2F%2Fboonepeter.github.io%2Fposts%2F2020-11-10-spotify-codes%2F&psig=AOvVaw2LHgpA5Qw_FBqkYQ-hBohU&ust=1643392474501000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCKD34prA0vUCFQAAAAAdAAAAABAI)
+![spotify code with heights labeled](https://boonepeter.github.io/imgs/spotify-2/spotify_track_6vQN2a9QSgWcm74KEZYfDL_labeled.png)
 
 Code 1
 This is the sequence of the “Girl Of My Dreams” Spotify code:
