@@ -11,12 +11,7 @@ Links
 	https://www.spotifycodes.com/
 	https://boonepeter.github.io/posts/2020-11-10-spotify-codes/	
 
-https://hackerone.com/spotify. great idea, but it was possible to pass in the bug bounty
-
-
-
-barcodes
-QR codes lil history maybe
+https://hackerone.com/spotify. great idea, but it was possible to pass in the bug bounty 
 
 ## Spotify codes 
 
@@ -27,7 +22,7 @@ set out to figure out how they worked, which led me on a winding journey through
 
 Spotify Codes are like QR-codes that can be generated to easily share Spotify songs, artists, playlists, and users.
 
-Spotify URIs	
+## Spotify URIs	
 Spotify URIs (Uniform Resource Identifiers). Different pieces of media (artists, albums, songs, playlists, users) all have a URI.
 
 A URI is a code you can use for embedding and searching within the Spotify app. Spotify URI codes look like this: spotify:user:spotify:playlist:37i9dQZF1DXcBWIGoYBM5M. 
