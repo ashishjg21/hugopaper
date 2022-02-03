@@ -1,6 +1,6 @@
 ---
 title: "I Built a Home Server."
-date: 2021-12-31T11:08:50+05:30
+date: 2022-01-27T11:08:50+05:30
 draft: false
 
 ---

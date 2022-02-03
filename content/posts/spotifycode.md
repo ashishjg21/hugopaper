@@ -5,9 +5,6 @@ draft: false
 
 ---
 
-
-# How does Spotify Codes Work?
-
 ## Spotify codes 
 
 I love music and I spend most of my day listening to songs. Spotify codes caught my eye from past some days, so I went on finding how do they work. 
