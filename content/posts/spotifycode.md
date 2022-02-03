@@ -1,6 +1,6 @@
 ---
 title: "How does Spotify Codes Work?"
-date: 2021-12-31T11:08:50+05:30
+date: 2022-01-01T11:08:50+05:30
 draft: false
 
 ---
@@ -9,6 +9,10 @@ draft: false
 
 I love music and I spend most of my day listening to songs. Spotify codes caught my eye from past some days, so I went on finding how do they work. 
 I thought I should share this journey, how even the maker of Spotify codes Ludvig Strigeus,(also the maker of utorrent)was involved.
+
+This is the sequence of the “Girl Of My Dreams” Spotify code:
+
+![Spotify barcode](https://scannables.scdn.co/uri/plain/jpeg/000000/white/640/spotify:track:7DF8lvLdV3htIbuTWpc7lR)
 
 > Spotify Codes are like QR-codes that can be generated to easily share Spotify songs, artists, playlists, and users.
 
@@ -23,13 +27,54 @@ The 22 characters are the numbers 0-9, characters a-z and A-Z. This means there 
 Spotify Codes 
 When the bars are sorted by height you can see that there are 8 discrete heights that they fall into.
 
-![spotify code with heights labeled](https://boonepeter.github.io/imgs/spotify-2/spotify_track_6vQN2a9QSgWcm74KEZYfDL_labeled.png)
 
-Code 1
-This is the sequence of the “Girl Of My Dreams” Spotify code:
+
+In this function I use [scikit-image](https://scikit-image.org/) to calculate the sequence of bar heights from a logo.
+
+```python
+from skimage import io
+from skimage.measure import label, regionprops
+from skimage.filters import threshold_otsu
+from skimage.color import rgb2gray
+
+
+def get_heights(filename: str) -> list:
+    """Open an image and return a list of the bar heights.
+    """
+    # convert to grayscale, then binary
+    image = io.imread(filename)
+    im = rgb2gray(image)
+    binary_im = im > threshold_otsu(im)
+
+    # label connected regions as objects
+    labeled = label(binary_im)
+
+    # get the dimensions and positions of bounding box around objects
+    bar_dimensions = [r.bbox for r in regionprops(labeled)]
+
+    # sort by X
+    bar_dimensions.sort(key=lambda x: x[1], reverse=False)
+
+    # the first object (spotify logo) is the max height of the bars
+    logo = bar_dimensions[0]
+    max_height = logo[2] - logo[0]
+    sequence = []
+    for bar in bar_dimensions[1:]:
+        height = bar[2] - bar[0]
+        ratio = height / max_height
+        # multiply by 8 to get an octal integer
+        ratio *= 8
+        ratio //= 1
+        # convert to integer (and make 0 based)
+        sequence.append(int(ratio - 1))
+    return sequence
+```
+
 
 > get_heights
 [0, 5, 1, 2, 0, 6, 4, 3, 7, 1, 6, 7, 7, 7, 7, 3, 1, 6, 3, 7, 0, 7, 0]
+
+![spotify code with heights labeled](https://boonepeter.github.io/imgs/spotify-2/spotify_track_6vQN2a9QSgWcm74KEZYfDL_labeled.png)
 
 According to StackOverflow discussion,
 The barcode consists of 23 bars, of which only 20 contain information. This means that there are 8^20 pieces of information that can be encoded into the code.
@@ -44,9 +89,9 @@ Problems :
 - Error correction 
 - String encryption
 
-Then it goes with CRC Calculation, Convolutional encoding, Decoding.  
-Grey scale, omg stop imaging I know what you all are thinking greyscale disease from Game of thrones well that is not what is used here.
-
+So to solve these problems,codes are then send through CRC Calculation, Convolutional encoding, and reversing (Decoding).  
+Gray-scale (gray codes)was one of techniques in which ordering of the binary numeral system such that two successive values differ in only one bit, omg stop imaging I know what you all are thinking greyscale disease from Game of thrones, well that is not what is used here.
+>For example, the representation of the decimal value "1" in binary would normally be "001" and "2" would be "010".  In Gray code, these values are represented as "001" and "011". That way, incrementing a value from 1 to 2 requires only one bit to change, instead of two.
 
 The media reference can be expressed as a 37 bit binary number:
 
@@ -56,7 +101,7 @@ The media reference can be expressed as a 37 bit binary number:
 
 ### CRC Calculation
 
-Next, [cyclic redundancy check](https://en.wikipedia.org/wiki/Cyclic_redundancy_check) bits are calculated for the media reference. A CRC calculates check bits to verify the integrity of the data. (Tangent: another simple checksum algorithm we use every day to validate credit card numbers is the [Luhn algorithm](https://en.wikipedia.org/wiki/Luhn_algorithm).)
+Next, [cyclic redundancy check](https://en.wikipedia.org/wiki/Cyclic_redundancy_check) bits are calculated for the media reference. A CRC calculates check bits to verify the integrity of the data. 
 
 Spotify uses CRC-8 with the following generator:
 
