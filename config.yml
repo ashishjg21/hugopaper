@@ -71,7 +71,17 @@ params:
   # home-info mode
   homeInfoParams:
     Title: "Hi there \U0001F44B"
-    Content: learn ⇄ imagine ⇆ build 
+    Content: > 
+      I'm Ashish, student from earth. 
+
+      - This is my personal blog and also my briandump. (Disclaimer: I can't spell)
+
+      - learn ⇄ imagine ⇆ build 
+
+      - [My second brain](https://the-second-brain.super.site/)
+      
+      - [All my notes](https://checkered-flyingfish-fa7.notion.site/559a60ff18f8479591b169a399a5778e?v=89f48cf9b88744e2bb322d7e6e3ea009)
+
 
   socialIcons:
     - name: twitter
