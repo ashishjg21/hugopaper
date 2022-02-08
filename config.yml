@@ -71,7 +71,7 @@ params:
   # home-info mode
   homeInfoParams:
     Title: "Hi there \U0001F44B"
-    Content: Welcome to my blog
+    Content: learn ⇄ imagine ⇆ build 
 
   socialIcons:
     - name: twitter
@@ -83,7 +83,7 @@ params:
     - name: linkedin
       url: "https://www.linkedin.com/in/ashish-galagali/"
     - name: email
-      url: "ajg8188@gmail.com"
+      url: "mailto:ajg8188@gmail.com"
     - name: instagram
       url: "https://www.instagram.com/ashishjg"
     

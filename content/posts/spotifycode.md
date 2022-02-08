@@ -101,7 +101,11 @@ The media reference can be expressed as a 37 bit binary number:
 
 ### CRC Calculation
 
-Next, [cyclic redundancy check](https://en.wikipedia.org/wiki/Cyclic_redundancy_check) bits are calculated for the media reference. A CRC calculates check bits to verify the integrity of the data. 
+This is very it got interesting for me, I had computer networks this semester and we learnt all these concepts in theory. I wanted to see how these are actually used and implemented.  
+
+[Cyclic redundancy check](https://en.wikipedia.org/wiki/Cyclic_redundancy_check) is a method of detecting accidental changes/errors in the communication channel and bits are generated for the media reference. A CRC calculates check bits to verify the integrity of the data.   
+
+In simple words its a error checking algorithm, for example if a receiver receviecs a packet of data from sender, how will it know the data was correct and bits are not interchanged during transmission. So transmitter sends the original data, and attaches a fixed number of check bits, which are derived from the data bits by some deterministic algorithm(here CRC). If only error detection is required, a receiver can simply apply the same algorithm to the received data bits and compare its output with the received check bits if the values do not match, an error has occurred at some point during the transmission.
 
 Spotify uses CRC-8 with the following generator:
 
