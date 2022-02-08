@@ -72,7 +72,7 @@ params:
   homeInfoParams:
     Title: "Hi there \U0001F44B"
     Content: > 
-      I'm Ashish, student from earth. 
+      I'm Ashish, student from earth. <p><span class="nowrap"><span class="emojify">🌎</span>  
 
       - This is my personal blog and also my briandump. (Disclaimer: I can't spell)
 
