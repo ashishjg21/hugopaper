@@ -8,7 +8,7 @@ buildDrafts: false
 buildFuture: false
 buildExpired: false
 enableEmoji: true
-#googleAnalytics: UA-123-45
+#googleAnalytics: G-70EPC285RG5
 
 minify:
   disableXML: true
@@ -17,7 +17,7 @@ minify:
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   title: Ashish J. Galagali 
-  description: "ExampleSite description"
+  description: ""
   keywords: [Blog, Portfolio, PaperMod]
   author: Me
   # author: ["Me", "You"] # multiple authors
@@ -48,6 +48,13 @@ params:
   #   apple_touch_icon: "<link / abs url>"
   #   safari_pinned_tab: "<link / abs url>"
 
+  params:
+    assets:
+      favicon: "/favicon.ico"
+      favicon16x16:  "/favicon-16x16.png"
+      favicon32x32:  "/favicon-32x32.png"
+      apple_touch_icon:  "/apple-touch-icon.png"
+      
   label:
     text: "Ashish J. Galagali"
     icon: 
@@ -96,6 +103,8 @@ params:
       url: "mailto:ajg8188@gmail.com"
     - name: instagram
       url: "https://www.instagram.com/ashishjg"
+    - name: cv
+      url: "https://github.com/ashishjg21/my_cv/blob/main/ASHISH_J%20GALAGALI_Resume_07-07-2022-01-46-07.pdf"
     
     # google:
     #   SiteVerificationTag: "XYZabc"
@@ -132,12 +141,9 @@ params:
     threshold: 0.4
     minMatchCharLength: 0
     keys: ["title", "permalink", "summary", "content"]
+
 menu:
   main:
-    - identifier: categories
-      name: categories
-      url: /categories/
-      weight: 10
     - identifier: tags
       name: tags
       url: /tags/
