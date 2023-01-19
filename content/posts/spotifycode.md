@@ -2,7 +2,7 @@
 title: "How does Spotify Codes Work?"
 date: 2022-01-01T11:08:50+05:30
 draft: false
-
+tag: spotify 
 ---
 
 ## Spotify codes 

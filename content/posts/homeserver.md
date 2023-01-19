@@ -2,7 +2,7 @@
 title: "I Built a Home Server."
 date: 2022-01-27T11:08:50+05:30
 draft: false
-
+tag: homeserver
 ---
 
 It all started with ads, my main mission these days was to stop incoming all trackers and blocking ads. I just didn't wanted to see ads anywhere. I use AdGuard to block everything in mobile so it's all good in my mobile but when I use TV or when my mom dad watch YouTube in their mobile it's hard for them to keep watch on AdGuard because it gets hard in some situations.
